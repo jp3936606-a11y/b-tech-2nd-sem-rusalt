@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEU-Result 2026</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
+        .container { background: white; padding: 30px; max-width: 450px; margin: auto; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.1); border-top: 5px solid #d9534f; }
+        h2 { color: #333; margin-bottom: 20px; }
+        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center; font-size: 16px; }
+        button { background-color: #d9534f; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; width: 95%; font-size: 16px; font-weight: bold; }
+        button:hover { background-color: #c9302c; }
+        .result-box { display: none; margin-top: 25px; padding: 20px; border-radius: 5px; font-weight: bold; font-size: 18px; line-height: 1.6; }
+        .fail { background-color: #ffdddd; color: #d9534f; border: 1px solid #d9534f; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="main-box">
+    <h2>BEU-Result 2026</h2>
+    <p>अपना रजिस्ट्रेशन नंबर / रोल नंबर दर्ज करें:</p>
+    <input type="text" id="rollNo" placeholder="यहाँ नंबर डालें..." required>
+    <button onclick="checkResult()">रिजल्ट देखें</button>
+    
+    <div id="result" class="result-box fail"></div>
+</div>
+
+<script>
+function checkResult() {
+    var roll = document.getElementById("rollNo").value;
+    if(roll.trim() == "") {
+        alert("कृपया पहले रजिस्ट्रेशन नंबर डालें!");
+        return;
+    }
+    
+    var btn = document.querySelector("button");
+    btn.innerText = "रिजल्ट खोजा जा रहा है...";
+    btn.disabled = true;
+    
+    setTimeout(function() {
+        btn.innerText = "रिजल्ट देखें";
+        btn.disabled = false;
+        
+        var resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+        // मजेदार प्रैंक मैसेज
+        resultDiv.innerHTML = "🔴 रिजल्ट: आप फेल हैं!<br><br>🚨 शाबाश बेटा! पढ़ाई-लिखाई में ध्यान लगाओ, IAS-YAS बनो... पर तुमको तो दिन भर रील्स (Reels) देखनी है! 😜<br><br>👉 (अरे सीरियस मत होना यार, ये एक मजाक है!)";
+    }, 1500);
+}
+</script>
+
+</body>
+</html>
